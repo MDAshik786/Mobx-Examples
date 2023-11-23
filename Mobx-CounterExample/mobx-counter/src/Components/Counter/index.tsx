@@ -2,13 +2,13 @@ import { observer } from "mobx-react-lite";
 import { useStore } from "../../Hooks/useStore";
 
 const Counter = observer(() => {
-  const { rootStore } = useStore();
-  console.log(rootStore, "rootStore");
+  const { rootStore : {counterStore}}  = useStore();
+  console.log(counterStore, "rootStore");
   return (
     <div>
-      <p>counter: {rootStore?.counterStore?.counter}</p>
-      <button onClick={rootStore?.counterStore?.decrement}>-</button>
-      <button onClick={rootStore?.counterStore?.increment}>+</button>
+      <p>counter: {counterStore?.counter}</p>
+      <button onClick = {counterStore?.decrement}>-</button>
+      <button onClick = {counterStore?.increment}>+</button>
     </div>
   );
 });
